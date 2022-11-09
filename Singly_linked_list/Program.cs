@@ -60,10 +60,37 @@ namespace Singly_linked_list
                 previous = current;
                 current = current.next;
             }
-            //Node baru akan ditempatkan diantara previous dan current
+            /*Node baru akan ditempatkan diantara previous dan current*/
 
             nodeBaru.next = current;
             previous.next = nodeBaru;
+        }
+        /* Method*/
+
+        public bool delNode(int nim)
+        {
+            Node previous, current;
+            previous = current = null;
+
+            /**/
+            if (Search(nim, ref previous, ref current) == false)
+                return false;
+            previous.next = current.next;
+            if (current == START)
+                START = START.next;
+            return true;
+        }
+        //
+
+        public bool Search(int nim, ref Node previous, ref Node current)
+        {
+            previous = START;
+            current = START;
+
+            while ((current != null) && (nim != current.noMhs))
+            {
+
+            }
         }
     }
 }
