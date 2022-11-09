@@ -156,11 +156,51 @@ namespace Singly_linked_list
                                     Console.Write("\nMasukkan nomor mahasiswa yang akan dihapus: ");
                                     int nim = Convert.ToInt32(Console.ReadLine());
                                     Console.WriteLine();
-                                    if(obj.delNode(nim) == false)
-                                        Console
+                                    if (obj.delNode(nim) == false)
+                                        Console.WriteLine("\nData tidak ditemukan.");
+                                    else
+                                        Console.WriteLine("Data dengan nomor mahasiswa" + nim + "dihapus");
+                                }
+                                break;
+                            case '3':
+                                {
+                                    obj.traverse();
+                                }
+                                break;
+                            case '4':
+                                {
+                                    if (obj.ListEmpty() == true)
+                                    {
+                                        Console.WriteLine("\nList Kosong !");
+                                        break;
+                                    }
+                                    Node previous, current;
+                                    previous = current = null;
+                                    Console.Write("\nMasukkan nomor mahasiswa yang akan dicari: ");
+                                    int num = Convert.ToInt32(Console.ReadLine());
+                                    if (obj.Search(num, ref previous, ref current) == false)
+                                        Console.WriteLine("\nData tidak ditemukan.");
+                                    else
+                                    {
+                                        Console.WriteLine("\nData ketemu");
+                                        Console.WriteLine("\nNomor Mahasiswa: " + current.noMhs);
+                                        Console.WriteLine("\nNama: " + current.nama);
+                                    }
+                                }
+                                break;
+                            case '5':
+                                return;
+                            default:
+                                {
+                                    Console.WriteLine("\nPilihan tidak valid");
+                                    break;
                                 }
                         }
 
+                    }
+                    catch(Exception e)
+                    {
+                        Console.WriteLine("\nCheck nilai yang anda masukkan.")
                     }
                 }
             }
