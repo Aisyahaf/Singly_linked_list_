@@ -72,7 +72,7 @@ namespace Singly_linked_list
             Node previous, current;
             previous = current = null;
 
-            /**/
+            /*Check */
             if (Search(nim, ref previous, ref current) == false)
                 return false;
             previous.next = current.next;
@@ -80,7 +80,7 @@ namespace Singly_linked_list
                 START = START.next;
             return true;
         }
-        //
+        //method untuk mengechek apakah node yang dimaksud ada di dalam list atau  
 
         public bool Search(int nim, ref Node previous, ref Node current)
         {
@@ -89,8 +89,30 @@ namespace Singly_linked_list
 
             while ((current != null) && (nim != current.noMhs))
             {
+                previous = current;
+                current = current.next;
+            }
 
+            if (current == null)
+                return (false);
+            else
+                return (true);
+        }
+
+        //
+        public void traverse()
+        {
+            if (ListEmpty())
+                Console.WriteLine("\nList Kosong.\n");
+            else
+            {
+                Console.WriteLine("\nData didalam list adalah : \n");
+                Node currentNode;
+                for (currentNode = START; currentNode != null; currentNode = currentNode.next)
+                    Console.Write(currentNode.noMhs + " " + currentNode.nama + "\n");
+                Console.WriteLine();
             }
         }
+
     }
 }
